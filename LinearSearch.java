@@ -1,40 +1,37 @@
-package DSA;
+package Recursion;
 
 import java.util.Scanner;
 
 public class LinearSearch {
-    public static int search(int[] arr, int target) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target) {
-                return i;
-            }
-        }
-        return -1;
-    }
+		
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		int size = scan.nextInt();
+		int[] arr = new int[size];
+		
+		for (int i = 0; i < arr.length ; i++) {
+			arr[i] = scan.nextInt();
+		}
+		
+		int target = scan.nextInt();
+		int ans = linearSearch(arr , target);
+		System.out.println(ans);
+		scan.close();
+	}
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the size of array: ");
-        int size = scanner.nextInt();
-        
-        int[] arr = new int[size];
-        System.out.println("Enter array elements:");
-        for (int i = 0; i < size; i++) {
-            arr[i] = scanner.nextInt();
-        }
-        
-        System.out.print("Enter target value to search: ");
-        int target = scanner.nextInt();
-        
-        int result = search(arr, target);
-        
-        if (result == -1) {
-            System.out.println("Element not found in array");
-        } else {
-            System.out.println("Element found at index: " + result);
-        }
-        
-        scanner.close();
-    }
+	private static int linearSearch(int[] arr, int target) {
+		
+		if(arr.length == 0) {
+			return -1;
+		}
+		
+		for(int index = 0; index < arr.length ; index++) {
+			
+			if(arr[index] == target) {
+				return index;
+			}
+		}
+		return 0;
+	}
 }
